@@ -1,8 +1,11 @@
+import dotenv from 'dotenv';
 import { Sequelize } from "sequelize";
 
-const db = new Sequelize('elearning_system', 'root','',{
-    host:'localhost',
-    dialect:'mysql'
-});
+'use strict';
 
-export default db;
+dotenv.config(); 
+const sequalize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+    host:process.env.DB_HOST,
+    dialect:'mysql'}); 
+ 
+export default sequalize;
